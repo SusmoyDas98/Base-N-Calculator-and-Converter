@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base N Converter and Calculator</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
+<body>
+    <div class = "container">
+        <div class = 'heading'>
+            {{ params["index_heading"] }}
+        </div>
+        <div class="buttons">
+            <button id="button_clicked_calculator">{{ params["to_calculator_button"] }}</button></a>
+            <button id="button_clicked_converter"> {{ params["to_converter_button"] }}</button></a>
+        </div>
+
+    </div>
+</body>
+<script src = "{{url_for('static',filename = 'js/index.js')}}"></script>
+</html>

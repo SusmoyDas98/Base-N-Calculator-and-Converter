@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base N Calculator</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/calculator.css')}}">
+
+</head>
+<body>
+    <div class="header">
+        <p id="header_title">{{ params["calculator_heading"] }}</p>
+    </div>
+    <div class="container">
+
+        <div class="Calculator">
+            <div class="input_takers">
+
+                    <div class="number_input">
+                    <label for = "input_number">First Number:</label>
+                    <input type = 'text' id = "input_number1" class = "input_number" name = "input_number" placeholder="Write a number" required>
+                    <label for = "input_number">Second Number:</label>
+                    <input type = 'text' id = "input_number2" class = "input_number" name = "input_number" placeholder="Write a number" required>
+
+                    </div>             
+
+                <div class="select_base">
+                    
+                        <label for="from_base" class = "frombase">Select Base:</label>
+                        <select id="from_base" name="from_base" required>
+                            {%  for base in bases   %}
+                                <option value="{{ base }}">Base {{ base }}</option>
+                            {% endfor %}
+                        </select>
+                    
+                        <label for="Operation" class = "Operation">Select Operation:</label>
+                        <select id="Operation" name="Operation" required>
+                            {%   for op, sign in operations.items()   %}
+                                <option value="{{ op }}">{{ sign }}</option>
+                            {%  endfor    %}
+                        </select>
+                </div>         
+                
+                <div class="output">
+                <div class="buttons">
+                <button type = 'submit' id = 'Calculate_button' class = 'Calculate_button' onclick="arithmetic_operation(input_number1.value, input_number2.value,from_base.value, Operation.value)"> Calculate </button>
+
+                </div>                           
+                    <p id='answer_title'>Answer:</p>
+                    <div class="answer_area" id = "answer_area1">
+                    </div>
+                </div>                           
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+            <div class = "footer_box">
+                <p>You may also like:</p> <button id = "button_clicked_converter" class = 'link'>{{ params["to_converter_button"] }}</button>
+                
+            </div>
+            <div id="home" ><button id = "to_home" class = 'link'>{{ params["Home_button"] }}</button></div>
+    </div>    
+
+</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/decimal.js@10.4.3/decimal.min.js"></script>
+    <script src = "{{url_for('static',filename = 'js/script.js')}}"></script>
+</html>

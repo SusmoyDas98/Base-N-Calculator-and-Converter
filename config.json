@@ -1,0 +1,11 @@
+{   
+    "params":
+    {
+    "index_heading": "Base n Calculator & Converter",
+    "to_converter_button": "Base n Converter",
+    "to_calculator_button": "Base n Calculator",
+    "Home_button": "Home",
+    "converter_heading": "Base n Converter",
+    "calculator_heading": "Base n Calculator"
+    }
+}

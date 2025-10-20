@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Base N Converter</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/converter.css')}}">
+    
+
+</head>
+<body>
+    <div class="header">
+        <p id="header_title">{{ params["converter_heading"] }}</p>
+    </div>
+    <div class="container">
+
+        <div class="converter">
+            <div class="input_takers">
+                <div class="number_input"><label for = "input_number">Input Number:</label>
+                <input type = 'text' id = "input_number" class = "input_number" name = "input_number" placeholder="Write a number" required>
+                </div>
+
+                <div class="select_base">
+                    <div class="from_base">
+                        <label for="from_base" class = "frombase">From Base:</label>
+                        <select id="from_base" name="from_base" required>
+                            {%  for base in bases   %}
+                                <option value="{{ base }}">Base {{ base }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                
+                    <div class="to_base">
+                        <label for="to_base" class = "tobase">To Base:</label>
+                        <select id="to_base" name="to_base" required>
+                            {%  for base in bases   %}
+                                <option value="{{ base }}">Base {{ base }}</option>
+                            {% endfor %}
+                            
+                        </select>
+                    </div>
+                </div>    
+            <div class="buttons">
+                <button type = 'submit' id = 'convert_button' class = 'convert_button' onclick="conversion(input_number.value, from_base.value, to_base.value)"> Convert </button>
+
+            </div>                           
+            </div>
+            <div class="output">
+                    <p id='answer_title'>Answer:</p>
+                    <div class="answer_area" id = "answer_area">
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <div class="footer">
+            <div class = "footer_box">
+                <p>You may also like:</p> <button id = "button_clicked_calculator" class = 'link'>{{ params["to_calculator_button"] }}</button>
+                
+                
+            </div>
+            <div id="home" ><button id = "to_home" class = 'link'>{{ params["Home_button"] }}</button></div>
+    </div>    
+ 
+
+
+
+</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/decimal.js@10.4.3/decimal.min.js"></script>
+    <script src = "{{url_for('static',filename = 'js/script.js')}}"></script>
+</html>
