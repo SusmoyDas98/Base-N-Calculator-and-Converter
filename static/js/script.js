@@ -236,7 +236,7 @@ function conversion(num, from_base, to_base, operation = false, functionality_ch
     
     }
     else{
-        return answer;
+        return sign? sign+answer : answer;
     }
 }
 
@@ -303,22 +303,3 @@ function arithmetic_operation(input_number1, input_number2,from_base, Operation)
             }
 
 }
-
-
-// moving to another page
-document.addEventListener("DOMContentLoaded", function(){
-    document.getElementById("button_clicked_calculator")?.addEventListener("click", function(){
-    window.open( '/calculator', "_blank");
-
-});
-
-
-document.getElementById("button_clicked_converter")?.addEventListener("click", function() {
-    window.open( '/converter', "_blank");
-
-});
-
-document.getElementById("to_home")?.addEventListener("click", function(){
-    window.location.href = '/';
-
-});})
