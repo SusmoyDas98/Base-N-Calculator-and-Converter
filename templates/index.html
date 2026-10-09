@@ -3,19 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Base N Converter and Calculator</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
 <body>
-    <div class = "container">
-        <div class = 'heading'>
+
+    <!-- GITHUB LINK -->
+    <div class="github_link">
+        <a href="https://github.com/SusmoyDas98" target="_blank" rel="noopener noreferrer">
+            <span>Explore My GitHub Profile</span>
+            <i class="bi bi-github"></i>
+        </a>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="landing-container">
+
+        <!-- HEADING -->
+        <div class="heading">
             {{ params["index_heading"] }}
         </div>
+
+        <!-- NAVIGATION BUTTONS -->
         <div class="buttons">
-            <button id="button_clicked_calculator">{{ params["to_calculator_button"] }}</button></a>
-            <button id="button_clicked_converter"> {{ params["to_converter_button"] }}</button></a>
+            <button type="button" id="button_clicked_calculator">
+                {{ params["to_calculator_button"] }}
+            </button>
+
+            <button type="button" id="button_clicked_converter">
+                {{ params["to_converter_button"] }}
+            </button>
         </div>
 
     </div>
+
+    <script src="{{url_for('static', filename = 'js/index.js')}}"></script>
+
 </body>
-<script src = "{{url_for('static',filename = 'js/index.js')}}"></script>
 </html>

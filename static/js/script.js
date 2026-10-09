@@ -231,8 +231,8 @@ function conversion(num, from_base, to_base, operation = false, functionality_ch
     }
     if (!operation){
     if(sign){
-    document.getElementById("answer_area").innerText = sign+answer.toUpperCase();}
-    else{document.getElementById("answer_area").innerText =answer.toUpperCase();}
+    document.getElementById("answer_title").innerText = sign+answer.toUpperCase();}
+    else{document.getElementById("answer_title").innerText =answer.toUpperCase();}
     
     }
     else{
@@ -291,11 +291,11 @@ function arithmetic_operation(input_number1, input_number2,from_base, Operation)
 
                 result = conversion(result.toString(), '10', from_base, true, true);   
                 result = typeof result == "string" ? result : ' ';     
-                document.getElementById("answer_area1").innerText = result.toUpperCase();       
+                document.getElementById("answer_title").innerText = result.toUpperCase();       
             }
             else{
                 alert("Invalid operation: Please check your input values.");
-                document.getElementById("answer_area1").innerText = "";       
+                document.getElementById("answer_title").innerText = "";       
                 return false;
             }
         

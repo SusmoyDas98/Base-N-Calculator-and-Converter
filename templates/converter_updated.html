@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Base N Converter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/converter_updated.css')}}">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    
+    
+</head>
+<body>
+    
+<div id="app" class="d-flex flex-column min-vh-100">
+    <div class="container-fluid header ">
+        <div class="row ">
+            <div class="col-sm-6 header_title">
+                Base n Converter
+            </div>
+            <div class="col-sm-6 github_link ">
+                <span class = "github_text">Explore My Github Profile</span>
+                <a href="https://github.com/SusmoyDas98" target="_blank"><i class="bi bi-github"></i></a>
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container-fluid converter-holder d-flex justify-content-center align-items-center  ">
+        <!-- Converter  -->
+        <div class="  converter ">
+                <div class="container-fluid converter_input_taker">
+                    <div class="number_input ">
+                            <label for = "input_number">Input Number:</label>
+                            <input type = 'text' id = "input_number" class = "input_number" name = "input_number" placeholder="Write a number" required>                    
+                    </div>    
+                    <div class="row select_base">
+                         <div class="col-md-5 from_base ">
+                             <label for="from_base" class = "frombase">From Base:</label>
+                             <select id="from_base" name="from_base" v-model = "from_base" required>
+                                 {%  for base in bases   %}
+                                     <option value="{{ base }}">Base {{ base }}</option>
+                                 {% endfor %}
+                             </select>
+                         </div>
+                         <div class="col-md-2 swap_button_container">
+                                 <button type="button" class="swap_button" @click="swapBases()">
+                                    <span class="swap_button_span" v-text = "swap_status"></span>
+                                  
+                                    <i class="bi bi-arrow-left-right"></i>
+                                 </button>
+                         </div>
+                         <div class="col-md-5 to_base ">
+                             <label for="to_base" class = "tobase">To Base:</label>
+                             <select id="to_base" name="to_base" v-model = "to_base" required>
+                                 {%  for base in bases   %}
+                                     <option value="{{ base }}" >Base {{ base }}</option>
+
+                                 {% endfor %}
+
+                             </select>
+                         </div>
+                     </div>    
+                 
+
+                
+
+                </div>
+                <div class="buttons d-flex align-items-center justify-content-center">
+                    <button type = 'submit' id = 'convert_button' class = 'convert_button' onclick="conversion(input_number.value, from_base.value, to_base.value)"> CONVERT </button>
+                </div>
+                <div class="output">
+                    
+                        <div class="container-fluid answer_area" id = "answer_area">
+                            <p id='answer_title'>Output</p>
+                        </div>
+                   
+                </div>      
+        </div>
+    </div>
+    <div class="footer  row">
+            <div class = "redirect_to_calc col-md-6 ">
+                <p>You may also like: <a href="/calculator" class="link" target="_blank">Base n Calculator</a></p>
+                
+            </div>
+            <div class="redirect_to_home col-md-6 " id="home" >
+                <a href="/" class="link" >Home</a>
+            </div>
+    </div>    
+</div>
+</body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/decimal.js@10.4.3/decimal.min.js"></script>
+    <script src = "{{url_for('static',filename = 'js/script.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

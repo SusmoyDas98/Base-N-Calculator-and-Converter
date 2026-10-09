@@ -1,0 +1,403 @@
+:root {
+    /* Colors */
+    --background-color: #0D2038;
+    --header-footer-color: #1E3A5F;
+    --card-color: #F8FAFC;
+    --white-color: #FFFFFF;
+    --white-border: #ffffffae;
+
+    --primary-yellow: #FFB703;
+    --output-green: #A7F3D0;
+
+    --dark-border: #13253D;
+    --dark-text: #13253D;
+
+    --grid-light: #1F3047;
+    --grid-dark: #19304A;
+
+    --gray: #86909C;
+
+    /* Fonts */
+    --font-slab: 'Space Grotesk', serif;
+    --font-condensed: 'Space Grotesk', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+a {
+    color: white;
+}
+
+/* HEADER */
+
+.header {
+    background-color: var(--header-footer-color);
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    border-bottom: 4px solid var(--white-color);
+    font-family: var(--font-slab);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+}
+
+.header_title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.github_link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.9rem;
+    color: #ffffff;
+}
+
+/* GitHub icon */
+
+.github_link i {
+    transition: transform 0.2s ease-in-out,
+                color 0.2s ease-in-out;
+}
+
+/* GitHub text */
+
+.github_link span {
+    opacity: 0;
+    margin-right: 0;
+    font-size: 1rem;
+    color: #ada9a9;
+    transform: translateX(10px);
+
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out,
+                margin-right 0.3s ease-in-out,
+                color 0.3s ease-in-out;
+}
+
+/* Hover */
+
+.github_link:hover i {
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+.github_link:hover span {
+    opacity: 1;
+    margin-right: 0.5rem;
+    transform: translateX(0);
+    color: #ffffff;
+}
+
+/* CALCULATOR BACKGROUND */
+
+.calculator-holder {
+    flex: 1;
+    background: radial-gradient(rgba(255,255,255,0.25) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+}
+
+/* CALCULATOR CARD */
+
+.calculator {
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+    height: auto;
+    width: 55vw;
+    max-width: 100%;
+    min-width: 0;
+    padding: 1.5rem;
+    background-color: var(--card-color);
+    box-shadow: 7px 8px 0px #000000,
+                7px 8px 0px 3px #ffffff;
+}
+
+.calculator_input_taker {
+    width: 100%;
+}
+
+/* NUMBER INPUTS */
+
+.number_input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+}
+
+label {
+    font-family: var(--font-slab);
+    font-weight: 700;
+    padding-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+input::placeholder {
+    letter-spacing: normal;
+}
+
+input {
+    letter-spacing: 5px;
+}
+
+select {
+    letter-spacing: normal;
+}
+
+input,
+select {
+    font-family: monospace;
+    font-size: 1rem;
+    width: 100%;
+    height: 3rem !important;
+    border: 3px solid var(--dark-border);
+    padding-left: 15px;
+}
+
+/* BASE AND OPERATION SELECTORS */
+
+.select_base {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.from_base,
+.operation_container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* CALCULATE BUTTON */
+
+.buttons {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.Calculate_button {
+    background-color: var(--primary-yellow);
+    width: min(100%, 510px);
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    border-radius: 999px;
+    box-shadow: 6px 6px 0px #0d2038;
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    border: 3px solid #0d2038;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.Calculate_button:hover {
+    background-color: #ffd467;
+    box-shadow: 8px 8px 0px #0d2038fb;
+    transform: translate(-2px, -2px);
+}
+
+.Calculate_button:active {
+    background-color: #ce9403;
+    box-shadow: 2px 2px 0px #0d2038;
+    color: whitesmoke;
+    transform: translate(3px, 3px);
+}
+
+/* OUTPUT */
+
+.output {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 0;
+}
+
+/* Output container */
+
+.answer_area {
+    background: linear-gradient(
+        90deg,
+        #8dd2b2,
+        var(--output-green),
+        #bff8dd,
+        transparent
+    );
+
+    height: 10vh;
+    min-height: 10vh;
+    box-sizing: border-box;
+    min-width: 0;
+
+    border-left: 3px solid var(--dark-border);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+    scrollbar-color: #395e4c transparent;
+}
+
+/* Output text */
+
+#answer_title {
+    display: flex;
+    align-items: center;
+
+    width: max-content;
+    min-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0 10px;
+
+    white-space: nowrap;
+    font-family: 'Lucida Sans', sans-serif;
+    font-weight: 700;
+    color: #395e4c;
+    font-size: 1rem;
+    letter-spacing: 3px;
+}
+
+/* Scrollbar */
+
+.answer_area::-webkit-scrollbar {
+    height: 6px !important;
+}
+
+.answer_area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.answer_area::-webkit-scrollbar-thumb {
+    background-color: #395e4c;
+    border-radius: 10px;
+}
+
+.answer_area::-webkit-scrollbar-thumb:hover {
+    background-color: #294738;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--header-footer-color);
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    border-top: 4px solid var(--white-color);
+    font-family: var(--font-slab);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+}
+
+.redirect_to_calc {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.redirect_to_home {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Footer hyperlinks */
+
+.footer .link {
+    color: #87CEFA;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer .link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* Remove default paragraph spacing */
+
+.redirect_to_calc p {
+    margin: 0;
+}
+
+/* RESPONSIVE LAYOUT */
+
+@media (max-width: 768px) {
+
+    .header {
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .github_link {
+        font-size: 1.6rem;
+    }
+
+    .calculator {
+        width: 90vw;
+        padding: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .select_base {
+        row-gap: 1rem;
+        /* column-gap:2rem; */
+    }
+
+    .from_base,
+    .operation_container {
+        width: 100%;
+    }
+
+    .footer {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .header_title {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .github_link {
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+
+    .calculator {
+        width: 95vw;
+        padding: 0.8rem;
+    }
+
+    .buttons {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .Calculate_button {
+        width: 100%;
+    }
+
+    .footer {
+        row-gap: 0.8rem;
+    }
+
+    .redirect_to_calc,
+    .redirect_to_home {
+        justify-content: center;
+        text-align: center;
+    }
+}

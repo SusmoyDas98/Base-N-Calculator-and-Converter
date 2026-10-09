@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Base N Calculator</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/calculator_updated.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div id="app" class="d-flex flex-column min-vh-100">
+
+    <div class="container-fluid header">
+        <div class="row">
+            <div class="col-sm-6 header_title">
+                {{ params["calculator_heading"] }}
+            </div>
+
+            <div class="col-sm-6 github_link">
+                <span class="github_text">Explore My Github Profile</span>
+                <a href="https://github.com/SusmoyDas98" target="_blank">
+                    <i class="bi bi-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid calculator-holder d-flex justify-content-center align-items-center">
+
+        <!-- Calculator -->
+        <div class="calculator">
+
+            <div class="container-fluid calculator_input_taker">
+
+                <div class="number_input">
+                    <label for="input_number1">First Number:</label>
+                    <input type="text" id="input_number1" class="input_number" name="input_number1" placeholder="Write a number" required>
+
+                    <label for="input_number2">Second Number:</label>
+                    <input type="text" id="input_number2" class="input_number" name="input_number2" placeholder="Write a number" required>
+                </div>
+
+                <div class="row select_base">
+
+                    <div class="col-md-6 from_base">
+                        <label for="from_base" class="frombase">Select Base:</label>
+                        <select id="from_base" name="from_base" required>
+                            {% for base in bases %}
+                                <option value="{{ base }}">Base {{ base }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 operation_container">
+                        <label for="Operation" class="Operation">Select Operation:</label>
+                        <select id="Operation" name="Operation" required>
+                            {% for op, sign in operations.items() %}
+                                <option value="{{ op }}">{{ sign }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="buttons d-flex align-items-center justify-content-center">
+                <button type="button" id="Calculate_button" class="Calculate_button" onclick="arithmetic_operation(input_number1.value, input_number2.value, from_base.value, Operation.value)">
+                    CALCULATE
+                </button>
+            </div>
+
+            <div class="output">
+                <div class="container-fluid answer_area" id="answer_area1">
+                    <p id="answer_title">Answer</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer row">
+
+        <div class="redirect_to_calc col-md-6">
+            <p>You may also like: <a href="/converter" class="link" target="_blank">Base n Converter</a></p>
+        </div>
+
+        <div class="redirect_to_home col-md-6" id="home">
+            <a href="/" class="link">Home</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/decimal.js@10.4.3/decimal.min.js"></script>
+<script src="{{url_for('static', filename = 'js/script.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,447 @@
+:root {
+    /* Colors */
+    --background-color: #0D2038;
+    --header-footer-color: #1E3A5F;
+    --card-color: #F8FAFC;
+    --white-color: #FFFFFF;
+    --white-border: #ffffffae;
+
+    --primary-yellow: #FFB703;
+    --output-green: #A7F3D0;
+
+    --dark-border: #13253D;
+    --dark-text: #13253D;
+
+    --grid-light: #1F3047;
+    --grid-dark: #19304A;
+
+    --gray: #86909C;
+
+    /* Fonts */
+    --font-slab: 'Space Grotesk', serif;
+    --font-condensed: 'Space Grotesk', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+}
+
+body{
+    background-color:var(--background-color);
+    /* background-color: white; */
+}
+a{
+    color: white;
+}
+.header{
+    background-color: var(--header-footer-color);
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    border-bottom: 4px solid var(--white-color);
+    font-family: var(--font-slab);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.05rem;
+}
+.header_title{
+    /* background-color: red; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;    
+}
+
+.github_link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.9rem;
+    /* color: #ada9a9; */
+    color: #ffffff;
+}
+
+/* GitHub icon */
+.github_link i {
+    transition: transform 0.2s ease-in-out,
+                color 0.2s ease-in-out;
+}
+
+/* GitHub text */
+.github_link span {
+    opacity: 0;
+    margin-right: 0;
+    font-size: 1rem;
+    color: #ada9a9;
+    transform: translateX(10px);
+
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out,
+                margin-right 0.3s ease-in-out,
+                color 0.3s ease-in-out;
+}
+
+/* Hover */
+.github_link:hover i {
+    transform: scale(1.2);
+    color: #ffffff;
+}
+
+.github_link:hover span {
+    opacity: 1;
+    margin-right: 0.5rem;
+    transform: translateX(0);
+    color: #ffffff;
+}
+
+.converter-holder{
+    flex:1;
+    background: radial-gradient(rgba(255,255,255,0.25)1.5px, transparent 1.5px);
+    /* background: radial-gradient(rgba(124, 121, 121, 0.25)2.5px, transparent 1.5px); */
+    background-size :  24px 24px;
+}   
+
+.converter {
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+    height: auto;
+    width: 55vw;        /* fixed width, content can't change it */
+    max-width: 100%;
+    min-width: 0;
+    padding: 1.5rem;
+    /* background-color: var(--card-color); */
+    background-color: rgb(235, 232, 232);;
+    box-shadow: 7px 8px 0px #000000,
+                7px 8px 0px 3px #ffffff;
+}
+
+.converter_input_taker{
+
+    /* background-color: red; */
+    /* width: 55vw; */
+    width: 100%;
+
+}
+
+.number_input{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+}
+
+.select_base{
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+    /* background-color: red; */
+}
+
+
+.from_base, .to_base{
+    /* background-color: red; */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+label{
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-family: var(--font-slab);
+    font-weight: 700;
+    padding-bottom:5px;
+    font-size: 0.9rem;
+}
+
+input::placeholder{
+        letter-spacing: normal;
+    
+}
+
+input{
+   letter-spacing: 5px;
+    
+}
+
+select{
+    letter-spacing: normal;
+}
+
+input, select{
+    /* font-family: var(--font-mono); */
+    font-family: monospace;
+    
+    font-size: 1rem;
+    /* width: 20vw; */
+    width:100%;
+    height: 3rem !important;
+    border: 3px solid var(--dark-border);
+    /* border-radius: 15px; */
+    padding-left: 15px;
+ 
+
+    /* background-color: red; */
+
+}
+
+.swap_button {
+  /* background-color: var(--primary-yellow, #ffb703); */
+  background-color: #da8c04;
+  color: #0d2038;
+  
+  /* Full 3px solid border all around */
+  border: 3px solid #0d2038;
+  border-radius: 50%;
+  
+  /* Hard offset shadow */
+  box-shadow: 3px 3px 0px #0d2038;
+  
+  /* Fixed size for a consistent circle (prevents shrinking or stretching) */
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  
+  /* Center the arrow icon inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  
+  cursor: pointer;
+  /* transition: all 0.1s ease; */
+  margin-bottom: 2px;
+
+    transition: transform 0.3s ease-in-out,
+  margin-bottom 0.1s ease-in-out,
+  translate 0.3s ease-in-out,
+  box-shadow 0.1s ease-in-out,
+  background-color 0.25s ease-in-out;
+  /* color 0.1s ease-in-out; */
+}
+
+
+/* Click/Active tactile press effect */
+.swap_button:active {
+    background-color: #563701 !important;
+    color: whitesmoke;
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #0d2038;
+}
+
+ .swap_button_container{
+    /* background-color: yellow; */
+    display:flex;
+    flex-direction: column ;
+    align-items: center;
+    justify-content: flex-end;
+    /* margin-bottom: 0; */
+    font-weight:700;
+ }
+
+ .swap_button_span{
+    /* visibility: hidden; */
+    opacity:0;
+    position: absolute;
+    font-size:0.8rem;
+    font-weight: 600;
+    display:flex;
+    align-items: center;
+    justify-content: center;  
+    background-color: #ef7605;
+    /* background-color:var(--primary-yellow); */
+    border-radius: 20px;
+    padding: 8px;
+    width: max-content;
+    line-height: 1;
+
+    /* margin-left: -1.5rem; */
+    /* transform: translateX(50%); */
+    /* transform: translate(-0rem, -2.9rem); */
+    transform: translate(-0rem, -1.0rem);
+
+    color: white;
+    /* font-family: var(--font-mono); */
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out,
+                background-color 0.3s ease-in-out;
+}
+
+.swap_button_span p{
+    margin: 0;
+}
+
+/* Hover effect */
+.swap_button:hover {
+  /* background-color: #ffa200; */
+   background-color: var(--primary-yellow); 
+ 
+  margin-bottom: 2px;
+  transform: scale(1.02);
+}
+
+.swap_button:hover .swap_button_span{
+    opacity: 1;
+    transform: translate(-0rem, -2.6rem);
+}
+
+
+.buttons{
+    /* background-color: red;   */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.convert_button{
+    background-color: var(--primary-yellow);
+    /* width: 35vw; */
+    width: min(100%, 510px);
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    /* border-radius: 50px; */
+    border-radius: 999px;
+    box-shadow: 6px 6px 0px #0d2038;
+    font-family: var(--font-condensed);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    border:3px solid #0d2038;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.convert_button:hover{
+
+    background-color: #ffd467;
+    box-shadow: 8px 8px 0px #0d2038fb;
+    transform: translate(-2px, -2px);
+}
+
+.convert_button:active{
+
+    background-color: #ce9403;
+    box-shadow: 2px 2px 0px #0d2038;
+    color: whitesmoke;
+    transform: translate(3px, 3px);
+}
+
+
+.output {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 0;
+}
+
+
+/* Output container: owns the horizontal scrollbar */
+.answer_area {
+    background: linear-gradient(
+        90deg,
+        #8dd2b2,
+        var(--output-green),
+        #bff8dd,
+        transparent
+    );
+    
+    height: 10vh;
+    min-height: 10vh;
+    box-sizing: border-box;
+    min-width: 0;
+
+    border-left: 3px solid var(--dark-border);
+   
+
+    /* Standard scrolling behavior across browsers */
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    /* Firefox and browsers supporting standard scrollbar properties */
+    scrollbar-width: thin;
+    scrollbar-color: #395e4c transparent;
+     /* box-shadow: 0px 4px 0px  var(--dark-border); */
+
+}
+
+/* Output text */
+#answer_title {
+    display: flex;
+    align-items: center;
+
+    width: max-content;
+    min-width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0 10px;
+
+    white-space: nowrap;
+    font-family: 'Lucida Sans', sans-serif;
+    font-weight: 700;
+    color: #395e4c;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-top: 0px;
+}
+
+/* Chrome, Edge, Safari, and other WebKit/Blink browsers */
+.answer_area::-webkit-scrollbar {
+    height: 6px !important;
+}
+
+
+
+.answer_area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.answer_area::-webkit-scrollbar-thumb {
+    background-color: #395e4c;
+    border-radius: 10px;
+}
+
+.answer_area::-webkit-scrollbar-thumb:hover {
+    background-color: #294738;
+}
+
+.footer {
+    background-color: var(--header-footer-color);
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    border-top: 4px solid var(--white-color);
+    font-family: var(--font-slab);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+}
+
+.redirect_to_calc {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.redirect_to_home {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Footer hyperlinks */
+.footer .link {
+    color: #87CEFA; /* Light blue */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer .link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+/* Remove default paragraph spacing */
+.redirect_to_calc p {
+    margin: 0;
+}
+
